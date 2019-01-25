@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "dev": "next",
+    "start": "next start",
+    "now-build": "next build"
+  },
+  "dependencies": {
+    "next": "^8.0.0-canary.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  }
+}
