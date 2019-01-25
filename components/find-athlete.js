@@ -1,11 +1,14 @@
 import Autocomplete from "react-autocomplete";
 import React from "react";
+import { debounce } from "lodash";
 
 export default class FindAthlete extends React.Component {
   state = {
     athletes: [],
     value: ''
   }
+
+  delayedCallback = debounce(this.updateAthletes, 400);
 
   render() {
     return (
@@ -26,10 +29,11 @@ export default class FindAthlete extends React.Component {
   }
 
   onChange = async (e) => {
+    e.persist();
     const q = e.target.value;
 
     if (q && q.length > 2) {
-      this.updateAthletes(q);
+      this.delayedCallback(q);
     }
 
     this.setState({ value: q });
