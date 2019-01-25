@@ -1,13 +1,12 @@
-import Link from "next/link";
 import Header from "../components/header";
+import FindAthlete from "../components/find-athlete";
 
 export default () => (
   <main>
     <Header />
     <section>
-      <Link href="/about">
-        <a>Go to About Me</a>
-      </Link>
+      <h2>Search for an athlete:</h2>
+      <FindAthlete />
     </section>
   </main>
 );

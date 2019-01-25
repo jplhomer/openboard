@@ -1,7 +1,18 @@
 {
-    "version": 2,
-    "name": "nextjs",
-    "builds": [
-        { "src": "package.json", "use": "@now/next" }
-    ]
+  "version": 2,
+  "name": "nextjs",
+  "builds": [
+    { "src": "package.json", "use": "@now/next" },
+    {
+      "src": "./lib/**/*.ts",
+      "use": "@now/node@canary"
+    }
+  ],
+  "env": {
+    "IS_NOW": "true"
+  },
+  "routes": [
+    { "src": "/proxy/(.*)", "dest": "/lib/proxy.ts", "headers": { "Access-Control-Allow-Origin": "*" } },
+    { "src": "/(.*)", "dest": "/$1" }
+  ]
 }
