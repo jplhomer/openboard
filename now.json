@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "name": "nextjs",
+  "name": "openboard",
   "builds": [
-    { "src": "package.json", "use": "@now/next" },
     {
-      "src": "./lib/**/*.ts",
+      "src": "package.json",
+      "use": "@now/next"
+    },
+    {
+      "src": "./backend/**/*.ts",
       "use": "@now/node@canary"
     }
   ],

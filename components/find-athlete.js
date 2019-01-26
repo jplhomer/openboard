@@ -40,7 +40,7 @@ export default class FindAthlete extends React.Component {
   }
 
   async updateAthletes(query) {
-    const endpoint = `/2019/athletes?term=${query}`;
+    const endpoint = `2019/athletes?term=${query}`;
     const proxy = process.env.IS_NOW ?
       `/proxy/` : `http://localhost:3001/proxy/`;
 
