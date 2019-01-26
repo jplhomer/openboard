@@ -1,6 +1,7 @@
 import { fetchAthletePerformance } from "../lib/athletes";
 import { fetchWorkouts } from "../lib/workouts";
 import Score from "../components/score"
+import { fetchMetadataForYear } from "../lib/meta";
 
 export default class Athlete extends React.Component {
   static async getInitialProps({ query }) {
@@ -9,17 +10,19 @@ export default class Athlete extends React.Component {
     year = year || 2018;
     const performance = await fetchAthletePerformance(id, year);
     const workouts = await fetchWorkouts();
+    const meta = await fetchMetadataForYear(year);
 
     return {
       year,
       athlete: performance.entrant,
       scores: performance.scores,
-      workouts
+      workouts,
+      meta
     }
   }
 
   render() {
-    const { athlete, scores, year, workouts } = this.props;
+    const { athlete, scores, year, workouts, meta } = this.props;
     return (
       <div>
         <h1>{athlete.competitorName}: {year}</h1>
@@ -27,7 +30,12 @@ export default class Athlete extends React.Component {
 
         <h2>Scores</h2>
         {scores.map(score => {
-          return <Score score={score} workouts={workouts} key={score.ordinal} />
+          return <Score
+            score={score}
+            athlete={athlete}
+            meta={meta}
+            workouts={workouts}
+            key={score.ordinal} />
         })}
       </div>
     );
