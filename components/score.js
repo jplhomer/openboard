@@ -7,12 +7,14 @@ export default ({ score, athlete, meta, workouts }) => {
 
   return (
     <div>
-      <h3>{workoutLabel}: {score.scoreDisplay}</h3>
+      <h3>
+        {workoutLabel}: {score.scoreDisplay}
+      </h3>
       <p>{score.scaled === "1" ? "Scaled" : "Rx"}</p>
       <p>{score.breakdown}</p>
       <p>Rank: {score.rank}</p>
 
       <Workout workout={workout} workoutLabel={workoutLabel} />
     </div>
-  )
-}
+  );
+};
