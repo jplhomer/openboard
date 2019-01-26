@@ -1,7 +1,7 @@
 {
   "scripts": {
     "dev": "next",
-    "proxy": "nodemon --exec \"ts-node lib/proxy.ts\"",
+    "proxy": "nodemon --exec \"ts-node backend/proxy.ts\"",
     "start": "next start",
     "now-build": "next build"
   },
