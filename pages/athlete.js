@@ -1,6 +1,8 @@
 import { fetchAthletePerformance } from "../lib/athletes";
 import { fetchWorkouts } from "../lib/workouts";
 import Score from "../components/score";
+import Layout from "../components/layout";
+import FindAthlete from "../components/find-athlete";
 import { fetchMetadataForYear } from "../lib/meta";
 
 export default class Athlete extends React.Component {
@@ -24,16 +26,21 @@ export default class Athlete extends React.Component {
   render() {
     const { athlete, scores, year, workouts, meta } = this.props;
     return (
-      <div>
-        <h1>
-          {athlete.competitorName}: {year}
-        </h1>
-        <img
-          src={`https://profilepicsbucket.crossfit.com/${
-            athlete.profilePicS3key
-          }`}
-          alt={athlete.competitorName}
-        />
+      <Layout>
+        <div className="nav-bar">
+          <div>&lt; {year} &gt;</div>
+          <FindAthlete />
+        </div>
+
+        <div className="user-header">
+          <img
+            src={`https://profilepicsbucket.crossfit.com/${
+              athlete.profilePicS3key
+            }`}
+            alt={athlete.competitorName}
+          />
+          <h1>{athlete.competitorName}</h1>
+        </div>
 
         <h2>Scores</h2>
         {scores.map(score => {
@@ -47,7 +54,30 @@ export default class Athlete extends React.Component {
             />
           );
         })}
-      </div>
+
+        <style jsx>{`
+          .nav-bar {
+            display: flex;
+            justify-content: space-between;
+          }
+
+          .user-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .user-header img {
+            width: 70px;
+            height: 70px;
+            border-radius: 100%;
+          }
+
+          .user-header h1 {
+            margin-left: 1rem;
+          }
+        `}</style>
+      </Layout>
     );
   }
 }
