@@ -1,5 +1,5 @@
 import { fetchAthletePerformance } from "../lib/athletes";
-import { fetchWorkouts } from "../lib/workouts";
+import { fetchWorkoutsForYear } from "../lib/workouts";
 import Score from "../components/Score";
 import Layout from "../components/Layout";
 import FindAthlete from "../components/FindAthlete";
@@ -11,7 +11,7 @@ export default class Athlete extends React.Component {
     const { id } = query;
     const { year = 2018 } = query;
     const performance = await fetchAthletePerformance(id, year);
-    const workouts = await fetchWorkouts();
+    const workouts = await fetchWorkoutsForYear(year);
     const meta = await fetchMetadataForYear(year);
 
     return {
