@@ -1,9 +1,32 @@
-export default ({ year }) => {
+import Link from "next/link";
+import { withRouter } from "next/router";
+
+export default withRouter(({ year, router }) => {
   return (
     <div className="container">
-      <a>←</a>
+      <Link
+        href={{
+          pathname: "/athlete",
+          query: {
+            ...router.query,
+            year: parseInt(year) - 1
+          }
+        }}
+      >
+        <a>←</a>
+      </Link>
       <span>{year}</span>
-      <a>→</a>
+      <Link
+        href={{
+          pathname: "/athlete",
+          query: {
+            ...router.query,
+            year: parseInt(year) + 1
+          }
+        }}
+      >
+        <a>→</a>
+      </Link>
       <style jsx>{`
         .container {
           display: flex;
@@ -15,6 +38,8 @@ export default ({ year }) => {
         a {
           padding: 0.15em 0.4em;
           background-color: #336699;
+          color: inherit;
+          text-decoration: none;
         }
 
         a:hover,
@@ -30,4 +55,4 @@ export default ({ year }) => {
       `}</style>
     </div>
   );
-};
+});

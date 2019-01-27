@@ -9,8 +9,7 @@ import YearNav from "../components/YearNav";
 export default class Athlete extends React.Component {
   static async getInitialProps({ query }) {
     const { id } = query;
-    let { year } = query;
-    year = year || 2018;
+    const { year = 2018 } = query;
     const performance = await fetchAthletePerformance(id, year);
     const workouts = await fetchWorkouts();
     const meta = await fetchMetadataForYear(year);
