@@ -29,6 +29,10 @@ export default ({ score, athlete, meta, workouts }) => {
         .score-box {
           display: flex;
           flex-flow: column nowrap;
+          background: #333;
+          border-radius: 5px;
+          box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.1);
+          overflow: hidden;
         }
 
         .heading {
@@ -38,12 +42,19 @@ export default ({ score, athlete, meta, workouts }) => {
           text-transform: uppercase;
           font-weight: bold;
           font-size: 2em;
+          background-color: #336699;
+          padding: 0 0.5rem;
         }
 
         .score .breakdown {
           font-size: 1.3em;
           margin-bottom: 0.5em;
           line-height: 1.25;
+        }
+
+        .score,
+        .workout {
+          padding: 0.5rem;
         }
 
         @media (min-width: 500px) {

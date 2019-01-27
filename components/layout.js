@@ -10,6 +10,8 @@ export default ({ children }) => {
           box-sizing: border-box;
           font-family: "Source Sans Pro", sans-serif;
           line-height: 1.5;
+          background: #111;
+          color: #efefef;
         }
 
         html *,

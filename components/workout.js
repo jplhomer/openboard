@@ -14,6 +14,10 @@ export default ({ workout, workoutLabel }) => {
         .workout-details {
           font-size: 0.8em;
         }
+
+        .workout-details :global(p:last-child) {
+          margin-bottom: 0;
+        }
       `}</style>
     </>
   );
