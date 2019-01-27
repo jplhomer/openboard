@@ -1,12 +1,9 @@
-import Header from "../components/header";
-import FindAthlete from "../components/find-athlete";
+import FindAthlete from "../components/FindAthlete";
+import Layout from "../components/Layout";
 
 export default () => (
-  <main>
-    <Header />
-    <section>
-      <h2>Search for an athlete:</h2>
-      <FindAthlete />
-    </section>
-  </main>
+  <Layout>
+    <h2>Search for an athlete:</h2>
+    <FindAthlete />
+  </Layout>
 );

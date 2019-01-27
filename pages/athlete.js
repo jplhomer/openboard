@@ -1,8 +1,8 @@
 import { fetchAthletePerformance } from "../lib/athletes";
 import { fetchWorkouts } from "../lib/workouts";
-import Score from "../components/score";
-import Layout from "../components/layout";
-import FindAthlete from "../components/find-athlete";
+import Score from "../components/Score";
+import Layout from "../components/Layout";
+import FindAthlete from "../components/FindAthlete";
 import { fetchMetadataForYear } from "../lib/meta";
 
 export default class Athlete extends React.Component {

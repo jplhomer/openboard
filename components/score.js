@@ -1,5 +1,5 @@
 import { getWorkoutLabelForScore, getWorkoutForScore } from "../lib/workouts";
-import Workout from "./workout";
+import Workout from "./Workout";
 
 export default ({ score, athlete, meta, workouts }) => {
   const workout = getWorkoutForScore(score, workouts, athlete, meta);
