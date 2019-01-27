@@ -4,6 +4,7 @@ import Score from "../components/Score";
 import Layout from "../components/Layout";
 import FindAthlete from "../components/FindAthlete";
 import { fetchMetadataForYear } from "../lib/meta";
+import YearNav from "../components/YearNav";
 
 export default class Athlete extends React.Component {
   static async getInitialProps({ query }) {
@@ -28,7 +29,7 @@ export default class Athlete extends React.Component {
     return (
       <Layout>
         <div className="nav-bar">
-          <div>&lt; {year} &gt;</div>
+          <YearNav year={year} />
           <FindAthlete />
         </div>
 
