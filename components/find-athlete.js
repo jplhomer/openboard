@@ -5,8 +5,8 @@ import { debounce } from "lodash";
 export default class FindAthlete extends React.Component {
   state = {
     athletes: [],
-    value: ''
-  }
+    value: ""
+  };
 
   delayedCallback = debounce(this.updateAthletes, 400);
 
@@ -14,21 +14,24 @@ export default class FindAthlete extends React.Component {
     return (
       <Autocomplete
         placeholder="Enter an athlete name"
-        getItemValue={(item) => item.name}
+        getItemValue={item => item.name}
         items={this.state.athletes}
-        renderItem={(item, isHighlighted) =>
-          <div key={item.id} style={{ background: isHighlighted ? 'lightgray' : 'white' }}>
+        renderItem={(item, isHighlighted) => (
+          <div
+            key={item.id}
+            style={{ background: isHighlighted ? "lightgray" : "white" }}
+          >
             {item.name}
           </div>
-        }
+        )}
         value={this.state.value}
         onChange={this.onChange}
-        onSelect={(value) => this.setState({ value })}
+        onSelect={value => this.setState({ value })}
       />
-    )
+    );
   }
 
-  onChange = async (e) => {
+  onChange = async e => {
     e.persist();
     const q = e.target.value;
 
@@ -37,12 +40,13 @@ export default class FindAthlete extends React.Component {
     }
 
     this.setState({ value: q });
-  }
+  };
 
   async updateAthletes(query) {
-    const endpoint = `2019/athletes?term=${query}`;
-    const proxy = process.env.IS_NOW ?
-      `/proxy/` : `http://localhost:3001/proxy/`;
+    const endpoint = `2018/athletes?term=${query}`;
+    const proxy = process.env.IS_NOW
+      ? `/proxy/`
+      : `http://localhost:3001/proxy/`;
 
     const response = await fetch(proxy + endpoint);
 
@@ -52,6 +56,6 @@ export default class FindAthlete extends React.Component {
     }
 
     const athletes = await response.json();
-    this.setState({ athletes })
+    this.setState({ athletes });
   }
 }
