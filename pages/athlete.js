@@ -42,16 +42,16 @@ export default class Athlete extends React.Component {
           <h1>{athlete.competitorName}</h1>
         </div>
 
-        <h2>Scores</h2>
         {scores.map(score => {
           return (
-            <Score
-              score={score}
-              athlete={athlete}
-              meta={meta}
-              workouts={workouts}
-              key={score.ordinal}
-            />
+            <div className="score" key={score.ordinal}>
+              <Score
+                score={score}
+                athlete={athlete}
+                meta={meta}
+                workouts={workouts}
+              />
+            </div>
           );
         })}
 
@@ -75,6 +75,10 @@ export default class Athlete extends React.Component {
 
           .user-header h1 {
             margin-left: 1rem;
+          }
+
+          .score {
+            margin-bottom: 2rem;
           }
         `}</style>
       </Layout>

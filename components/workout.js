@@ -4,16 +4,17 @@ export default ({ workout, workoutLabel }) => {
       <div>
         <img src={workout.media_preview[0].url} alt={workoutLabel} />
         <div
+          className="workout-details"
           dangerouslySetInnerHTML={{
             __html: workout.athleteWorkout.steps
           }}
         />
-        <div
-          dangerouslySetInnerHTML={{
-            __html: workout.workout_summary
-          }}
-        />
       </div>
+      <style jsx>{`
+        .workout-details {
+          font-size: 0.8em;
+        }
+      `}</style>
     </>
   );
 };

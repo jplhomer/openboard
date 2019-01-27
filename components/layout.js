@@ -18,8 +18,15 @@ export default ({ children }) => {
           box-sizing: inherit;
         }
 
+        p,
+        h2,
+        h3,
+        h4 {
+          margin-top: 0;
+        }
+
         .wrapper {
-          max-width: 800px;
+          max-width: 600px;
           margin: 0 auto;
           padding: 1rem;
         }
