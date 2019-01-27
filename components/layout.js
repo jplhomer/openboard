@@ -1,6 +1,12 @@
+import Head from "next/head";
+
 export default ({ children }) => {
   return (
     <div className="wrapper">
+      <Head>
+        <title>Openboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
       <style global jsx>{`
         @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700,700i");
         body,
