@@ -1,6 +1,7 @@
 {
   "version": 2,
   "name": "openboard",
+  "alias": "openboard",
   "builds": [
     {
       "src": "package.json",
@@ -15,7 +16,11 @@
     "IS_NOW": "true"
   },
   "routes": [
-    { "src": "/proxy/(.*)", "dest": "/backend/proxy.ts", "headers": { "Access-Control-Allow-Origin": "*" } },
+    {
+      "src": "/proxy/(.*)",
+      "dest": "/backend/proxy.ts",
+      "headers": { "Access-Control-Allow-Origin": "*" }
+    },
     { "src": "/(.*)", "dest": "/$1" }
   ]
 }
