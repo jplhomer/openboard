@@ -9,7 +9,7 @@
     },
     {
       "src": "./backend/**/*.ts",
-      "use": "@now/node@canary"
+      "use": "@now/node@0.4.28-canary.6"
     }
   ],
   "env": {
