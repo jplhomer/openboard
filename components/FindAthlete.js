@@ -1,6 +1,8 @@
 import Autocomplete from "react-autocomplete";
 import React from "react";
+import Router from "next/router";
 import { debounce } from "lodash";
+import { fetchData } from "../lib/fetch";
 
 export default class FindAthlete extends React.Component {
   state = {
@@ -42,7 +44,7 @@ export default class FindAthlete extends React.Component {
           }}
           value={this.state.value}
           onChange={this.onChange}
-          onSelect={value => this.setState({ value })}
+          onSelect={this.onSelect}
         />
         <style jsx>{`
           :global(.input) {
@@ -72,6 +74,11 @@ export default class FindAthlete extends React.Component {
     );
   }
 
+  onSelect = (value, item) => {
+    value => this.setState({ value });
+    Router.push({ pathname: "/athlete", query: { id: item.id } });
+  };
+
   onChange = async e => {
     e.persist();
     const q = e.target.value;
@@ -84,12 +91,7 @@ export default class FindAthlete extends React.Component {
   };
 
   async updateAthletes(query) {
-    const endpoint = `2018/athletes?term=${query}`;
-    const proxy = process.env.IS_NOW
-      ? `/proxy/`
-      : `http://localhost:3001/proxy/`;
-
-    const response = await fetch(proxy + endpoint);
+    const response = await fetchData(`2018/athletes?term=${query}`);
 
     if (!response.ok) {
       console.log(`Error ${response.status}: ${response.statusText}`);
