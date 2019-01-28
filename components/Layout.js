@@ -61,6 +61,9 @@ export default ({ children }) => {
         <p>
           Built by <a href="https://twitter.com/jplhomer">Josh Larson</a> as a{" "}
           <a href="https://creative.jplhomer.org">creative project</a>.<br />
+          View the{" "}
+          <a href="https://github.com/jplhomer/openboard">code on GitHub</a>.
+          <br />
           No affiliation with CrossFit Games. All photos property of CrossFit.
         </p>
       </footer>
