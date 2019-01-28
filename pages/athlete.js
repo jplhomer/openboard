@@ -48,7 +48,9 @@ export default class Athlete extends React.Component {
             }`}
             alt={athlete.competitorName}
           />
-          <h1>{athlete.competitorName}</h1>
+          <h1>
+            {athlete.competitorName} - {year}
+          </h1>
         </div>
 
         {scores.map(score => {
@@ -74,6 +76,7 @@ export default class Athlete extends React.Component {
             display: flex;
             justify-content: center;
             align-items: center;
+            margin: 1em 0;
           }
 
           .user-header img {
@@ -84,6 +87,12 @@ export default class Athlete extends React.Component {
 
           .user-header h1 {
             margin-left: 1rem;
+          }
+
+          @media (max-width: 500px) {
+            .user-header h1 {
+              font-size: 1.5em;
+            }
           }
 
           .score {

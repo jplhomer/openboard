@@ -29,6 +29,7 @@ export default () => (
       .find-athlete {
         font-size: 1.5em;
         text-align: left;
+        margin-top: 1em;
         margin-bottom: 1em;
         display: flex;
         justify-content: center;
