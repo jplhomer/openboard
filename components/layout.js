@@ -43,8 +43,27 @@ export default ({ children }) => {
           height: auto;
           max-width: 100%;
         }
+
+        footer {
+          font-size: 0.8em;
+          margin-top: 2em;
+          padding-top: 2em;
+          border-top: 1px solid #666;
+          text-align: center;
+        }
+
+        footer a {
+          color: #ccc;
+        }
       `}</style>
       {children}
+      <footer>
+        <p>
+          Built by <a href="https://twitter.com/jplhomer">Josh Larson</a> as a{" "}
+          <a href="https://creative.jplhomer.org">creative project</a>.<br />
+          No affiliation with CrossFit Games. All photos property of CrossFit.
+        </p>
+      </footer>
     </div>
   );
 };
