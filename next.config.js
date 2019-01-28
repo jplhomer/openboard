@@ -1,3 +1,6 @@
 module.exports = {
-  target: 'serverless'
-}
+  target: "serverless",
+  publicRuntimeConfig: {
+    isProduction: process.env.IS_NOW
+  }
+};
