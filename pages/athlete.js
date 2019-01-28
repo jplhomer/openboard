@@ -6,6 +6,7 @@ import FindAthlete from "../components/FindAthlete";
 import { fetchMetadataForYear } from "../lib/meta";
 import YearNav from "../components/YearNav";
 import Error from "next/error";
+import Head from "next/head";
 
 export default class Athlete extends React.Component {
   static async getInitialProps({ query, res }) {
@@ -36,6 +37,15 @@ export default class Athlete extends React.Component {
     if (!athlete) return <Error statusCode={404} status="Athlete not found" />;
     return (
       <Layout>
+        <Head>
+          <title>{athlete.competitorName}'s 2018 Open Stats - Openboard</title>
+          <meta
+            name="description"
+            content={`View ${
+              athlete.competitorName
+            }'s 2018 CrossFit Open stats, including details for each workout.`}
+          />
+        </Head>
         <div className="nav-bar">
           <YearNav year={year} />
           <FindAthlete />
