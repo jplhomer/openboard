@@ -5,20 +5,27 @@ import Layout from "../components/Layout";
 import FindAthlete from "../components/FindAthlete";
 import { fetchMetadataForYear } from "../lib/meta";
 import YearNav from "../components/YearNav";
+import Error from "next/error";
 
 export default class Athlete extends React.Component {
-  static async getInitialProps({ query }) {
+  static async getInitialProps({ query, res }) {
     const { id } = query;
+
+    if (!id && res) {
+      res.statusCode = 404;
+    }
+
     const year = 2018; // Year is hardcoded until other years are normalizEd
     // const { year = 2018 } = query;
+
     const performance = await fetchAthletePerformance(id, year);
     const workouts = await fetchWorkoutsForYear(year);
     const meta = await fetchMetadataForYear(year);
 
     return {
       year,
-      athlete: performance.entrant,
-      scores: performance.scores,
+      athlete: performance ? performance.entrant : null,
+      scores: performance ? performance.scores : null,
       workouts,
       meta
     };
@@ -26,6 +33,7 @@ export default class Athlete extends React.Component {
 
   render() {
     const { athlete, scores, year, workouts, meta } = this.props;
+    if (!athlete) return <Error statusCode={404} status="Athlete not found" />;
     return (
       <Layout>
         <div className="nav-bar">
