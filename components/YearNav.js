@@ -1,32 +1,39 @@
 import Link from "next/link";
 import { withRouter } from "next/router";
 
+const MIN_YEAR = 2018;
+const MAX_YEAR = 2019;
+
 export default withRouter(({ year, router }) => {
   return (
     <div className="container">
-      <Link
-        href={{
-          pathname: "/athlete",
-          query: {
-            ...router.query,
-            year: parseInt(year) - 1
-          }
-        }}
-      >
-        <a>←</a>
-      </Link>
+      {year > MIN_YEAR && (
+        <Link
+          href={{
+            pathname: "/athlete",
+            query: {
+              ...router.query,
+              year: parseInt(year) - 1
+            }
+          }}
+        >
+          <a>←</a>
+        </Link>
+      )}
       <span>{year}</span>
-      <Link
-        href={{
-          pathname: "/athlete",
-          query: {
-            ...router.query,
-            year: parseInt(year) + 1
-          }
-        }}
-      >
-        <a>→</a>
-      </Link>
+      {year < MAX_YEAR && (
+        <Link
+          href={{
+            pathname: "/athlete",
+            query: {
+              ...router.query,
+              year: parseInt(year) + 1
+            }
+          }}
+        >
+          <a>→</a>
+        </Link>
+      )}
       <style jsx>{`
         .container {
           display: flex;
