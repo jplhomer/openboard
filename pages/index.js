@@ -5,15 +5,10 @@ export default () => (
   <Layout>
     <div className="box">
       <h1>Openboard</h1>
-      <p>View an athlete's score from the 2018 CrossFit Games.</p>
+      <p>View an athlete's score from the CrossFit Games.</p>
       <div className="find-athlete">
         <FindAthlete />
       </div>
-      <p>
-        <small>
-          <em>More years coming soon!</em>
-        </small>
-      </p>
     </div>
     <style jsx>{`
       h1 {

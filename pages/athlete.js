@@ -7,6 +7,7 @@ import { fetchMetadataForYear } from "../lib/meta";
 import YearNav from "../components/YearNav";
 import Error from "next/error";
 import Head from "next/head";
+import Link from "next/link";
 
 export default class Athlete extends React.Component {
   static async getInitialProps({ query, res }) {
@@ -46,6 +47,9 @@ export default class Athlete extends React.Component {
           />
         </Head>
         <div className="nav-bar">
+          <Link href="/">
+            <a>Openboard</a>
+          </Link>
           <YearNav year={year} />
           <FindAthlete />
         </div>
@@ -79,6 +83,12 @@ export default class Athlete extends React.Component {
           .nav-bar {
             display: flex;
             justify-content: space-between;
+          }
+
+          .nav-bar > a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
           }
 
           .user-header {
