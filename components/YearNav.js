@@ -4,8 +4,7 @@ import { withRouter } from "next/router";
 export default withRouter(({ year, router }) => {
   return (
     <div className="container">
-      <span>{year}</span>
-      {/* <Link
+      <Link
         href={{
           pathname: "/athlete",
           query: {
@@ -27,7 +26,7 @@ export default withRouter(({ year, router }) => {
         }}
       >
         <a>→</a>
-      </Link> */}
+      </Link>
       <style jsx>{`
         .container {
           display: flex;
