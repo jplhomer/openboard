@@ -38,12 +38,12 @@ export default class Athlete extends React.Component {
     return (
       <Layout>
         <Head>
-          <title>{athlete.competitorName}'s 2018 Open Stats - Openboard</title>
+          <title>{athlete.competitorName}'s {year} Open Stats - Openboard</title>
           <meta
             name="description"
             content={`View ${
               athlete.competitorName
-            }'s 2018 CrossFit Open stats, including details for each workout.`}
+            }'s ${year} CrossFit Open stats, including details for each workout.`}
           />
         </Head>
         <div className="nav-bar">
