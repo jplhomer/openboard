@@ -17,7 +17,7 @@ export default class Athlete extends React.Component {
       res.statusCode = 404;
     }
 
-    const { year = 2019 } = query;
+    const { year = 2020 } = query;
 
     const performance = await fetchAthletePerformance(id, year);
     const workouts = await fetchWorkoutsForYear(year);
