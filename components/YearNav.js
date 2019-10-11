@@ -2,7 +2,7 @@ import Link from "next/link";
 import { withRouter } from "next/router";
 
 const MIN_YEAR = 2018;
-const MAX_YEAR = 2019;
+const MAX_YEAR = 2020;
 
 export default withRouter(({ year, router }) => {
   return (
